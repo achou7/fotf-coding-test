@@ -1,0 +1,12 @@
+body {
+  font-family: 'Helvetica', sans-serif;
+  background: #ccc;
+}
+
+#main {
+  max-width: 960px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px;
+  background: #fff;
+}
