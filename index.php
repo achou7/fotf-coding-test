@@ -10,7 +10,8 @@ require_once 'config.php';
 <head>
   <meta charset="utf-8">
   <title>Focus famille article list</title>
-  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="css/main.css">
+  <script type="text/javascript" src="js/search.js"></script>
 </head>
 
 <body>
@@ -40,56 +41,30 @@ require_once 'config.php';
     <br>
 
     <h3>Search by date</h3>
-    <form action="/search" method="get" id="search">
-      <input type="text" id="dateRange" name="dateRange">
+    <form onSubmit="search();return false;" method="get" id="search">
+      <input type="date" id="startingDate" name="startingDate" required>
+      <input type="date" id="endingDate" name="endingDate" required>
     </form>
     <button type="submit" form="search">Search</button>
 
     <br>
 
-    <h2>All Articles</h2>
-
-<?php
-
-/* Get all articles from the database */
-$id = 0;
-$stmt = $pdo->prepare('SELECT title, alias, created FROM aic5k_content WHERE ID > :id');
-$stmt->execute(['id' => $id]);
-
-$result = [];
-
-foreach ($stmt as $row) {
-  array_push($result, $row);
-}
-
-$reverse = array_reverse($result);
-
- ?>
-
+    <h2>Articles</h2>
+    <h4 id="status"></h4>
     <table>
       <thead>
         <tr>
+          <td><b>Number</b></td>
           <td><b>Article title</b></td>
           <td><b>Date</b></td>
         </tr>
       </thead>
-      <tbody>
-
-        <?php
-          foreach ($reverse as $row) {
-            echo "<tr>";
-            echo "<td><a href=\"articles/" . $row['alias'] . "\">" . $row['title'] . "</a></td><td>" . $row['created'] . "</td";
-            echo "</tr>";
-
-          }
-         ?>
-
+      <tbody id="articles">
       </tbody>
     </table>
 
   </div> <!-- end #main -->
 
-<script src="/js/search.js"></script>
 
 </body>
 </html>

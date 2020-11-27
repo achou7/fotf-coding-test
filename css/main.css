@@ -7,6 +7,31 @@ body {
   max-width: 960px;
   width: 100%;
   margin: 0 auto;
-  padding: 10px;
+  padding: 45px 10%;
   background: #fff;
 }
+
+table {
+  width: 100%;
+}
+
+table td {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  border: 1px solid #ddd;
+  padding: 15px;
+}
+
+thead td {
+  background-color: #4CAF50;
+  color: white;
+}
+
+tbody tr:nth-child(2n) {
+  background-color: #cecece;
+}
+
+tbody tr:nth-child(2n-1) {
+  background-color: #f3f3f3;
+}
+

@@ -3,9 +3,9 @@
 // Database connection:
 
 $host = '127.0.0.1';
-$port = '8889';
-$db = 'focusfamille_backup';
-$user = '';
+$port = '3306';
+$db = 'fotf';
+$user = 'root';
 $pw = '';
 $charset = 'utf8';
 
